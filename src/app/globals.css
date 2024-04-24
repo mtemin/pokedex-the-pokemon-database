@@ -2,30 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    /*buraya yazdıkların aşağıdaki gibi olmalı*/
+    /*.sidebar-hidden{*/
+    /*    @apply ml-[calc(-20%+1.25rem)] max-lg:ml-[calc(-33%+1.25rem)] max-sm:ml-[calc(-95%+1.5rem)] ;*/
+    /*}*/
+}
+
+@layer utilities {
+
+    .shadow-inside {
+        box-shadow: rgba(var(--foreground-rgb), 0.25) 0 30px 60px -12px inset, rgba(var(--foreground-rgb), 0.3) 0 18px 36px -18px inset;
+    }
+
+    .shadow-glassy {
+        box-shadow: rgba(var(--foreground-rgb), 0.17) 0 -23px 25px 0 inset, rgba(var(--foreground-rgb), 0.15) 0 -36px 30px 0 inset, rgba(var(--foreground-rgb), 0.1) 0 -79px 40px 0 inset, rgba(var(--foreground-rgb), 0.06) 0 2px 1px, rgba(var(--foreground-rgb), 0.09) 0 4px 2px, rgba(0, 0, 0, 0.09) 0 8px 4px, rgba(var(--foreground-rgb), 0.09) 0 16px 8px, rgba(var(--foreground-rgb), 0.09) 0 32px 16px;
+        /*box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;*/
+    }
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --background: rgb(230, 230, 230);
-  --primary: #437ddc;
+    --foreground-rgb: 0, 0, 30;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --background: rgb(235, 245, 250);
+    --background-card: #accdec;
+    --foreground-card: #0F2A43;
+    /*lemonchiffon khaki palegoldenrod lightgoldenrodyellow */
+    --pokemon-bg-shadow: #3c5aa6;
+    --pokemon-fg-shadow: #c7a008;
+    --pokemon-bg: #2a75bb;
+    --pokemon-fg: #ffcb05;
+
+    --type-normal: #aa9;
+    --type-fire: #f42;
+    --type-water: #39f;
+    --type-electric: #fc3;
+    --type-grass: #7c5;
+    --type-ice: #6cf;
+    --type-fighting: #b54;
+    --type-poison: #a59;
+    --type-ground: #db5;
+    --type-flying: #89f;
+    --type-psychic: #f59;
+    --type-bug: #ab2;
+    --type-rock: #ba6;
+    --type-ghost: #66b;
+    --type-dragon: #76e;
+    --type-dark: #754;
+    --type-steel: #aab;
+    --type-fairy: #e9e;
 
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --background: rgb(10, 10, 10);
-    --primary: #437ddc;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+        --background: rgb(0, 0, 30);
+        --background-card: #0F2A43;
+        --foreground-card: #accdec;
+
+    }
+}
+
+* {
+    box-sizing: border-box
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  /* background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
-  background-color: var(--background);
-  font-family: Ubuntu;
+    color: rgb(var(--foreground-rgb));
+    /* background: linear-gradient(to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
+    background-color: var(--background);
+    font-family: Ubuntu;
 }
