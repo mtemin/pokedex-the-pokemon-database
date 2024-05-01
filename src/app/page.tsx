@@ -1,9 +1,9 @@
 "use client"
 
-import PokeSidebar from '@/app/_components/PokeSidebar';
+import PokemonDamageModifiers from '@/app/_components/PokemonDamageModifiers';
 import PokemonStats from '@/app/_components/PokemonStats';
 import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
-import PokemonFrontBack from "@/app/_components/PokemonFrontBack";
+import PokemonShowcase from "@/app/_components/PokemonShowcase";
 
 
 export default function Home() {
