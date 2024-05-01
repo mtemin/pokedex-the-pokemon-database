@@ -6,24 +6,29 @@ import usePokedexByTypeQuery from "@/app/_hooks/usePokedexByTypeQuery";
 import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
 import useTypeQuery from "@/app/_hooks/useTypeQuery";
 import DamageRelations from "@/app/_components/DamageRelations";
-import ShieldIcon from "@/app/_components/ShieldIcon";
-import SwordIcon from "@/app/_components/SwordsIcon";
+import IconShield from "@/app/_components/Icon-Shield";
+import SwordIcon from "@/app/_components/Icon-Swords";
+import IconTick from "@/app/_components/Icon-Tick";
+import IconMinus from "@/app/_components/Icon-Minus";
 
-export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
+export default function PokemonDamageModifiers({pokemonId}: { pokemonId: number }) {
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);
     let pokeType = pokemonData?.types[0].type.name;
+
     const {
         data: typeData,
         isLoading: isTypeDataLoading,
         isError: isTypeDataError
     } = useTypeQuery(pokeType);
+
+
     // const typeData = null;
 
-    console.log("=>(PokeSidebar.tsx:13) TypeData", typeData);
+    // console.log("=>(PokemonDamageModifiers.tsx:13) TypeData", typeData);
 
     return (
         <aside id="sidebar"
-               className="m-3 overflow-y-scroll col-span-2 w-auto h-[calc(100vh-90px)] flex flex-col justify-between">
+               className="m-3 overflow-y-scroll col-span-2 w-auto h-[calc(100vh-90px)] flex flex-col justify-between scrollbar-thumb-sky-700 scrollbar-track-sky-300">
             <div className="bg-[var(--background-card)] rounded-t">
                 <Image
                     src="/Pokédex_logo.png"
@@ -34,7 +39,7 @@ export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
                     priority
                 />
             </div>
-            <ul className="bg-[var(--background-card)] flex flex-col h-full w-full rounded-b overflow-y-scroll px-2">
+            <ul className="bg-[var(--background-card)] flex flex-col h-full w-full rounded-b px-2">
                 <div className="flex justify-center">
                     {typeData
                         ?
@@ -50,7 +55,10 @@ export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
                 <SwordIcon className="p-1 rounded w-10 h-10 my-2 mx-auto"/>
                 <div id="modifier-attack" className="flex justify-between mb-6">
                     <div className="flex flex-col px-1 w-1/2">
-                        <h3 className="max-w-full"><span className="font-medium text-center">2X</span> To</h3>
+                        <h3 className="max-w-full truncate mb-2"><IconTick
+                            className="w-4 h-4 rounded-full bg-green-600 inline mr-1"/>
+                            <span
+                                className="font-medium text-center">2X</span> To</h3>
                         {typeData
                             ? typeData.damage_relations.double_damage_to.map((ddto: any) =>
                                 <DamageRelations key={ddto.name} name={ddto.name}/>
@@ -63,7 +71,9 @@ export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
                         }
                     </div>
                     <div className="flex flex-col px-1 w-1/2">
-                        <h3 className="max-w-full"><span className="font-medium text-center">1/2</span> To</h3>
+                        <h3 className="max-w-full truncate mb-2"><IconMinus
+                            className="w-4 h-4 inline rounded-full bg-rose-600 mr-1"/><span
+                            className="font-medium text-center">1/2</span> To</h3>
                         {typeData
                             ? typeData.damage_relations.half_damage_to.map((hdto: any) =>
                                 <DamageRelations key={hdto.name} name={hdto.name}/>
@@ -76,10 +86,12 @@ export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
                         }
                     </div>
                 </div>
-                <ShieldIcon className="rounded p-1 w-10 h-10 mx-auto mb-2"></ShieldIcon>
+                <IconShield className="rounded p-1 w-10 h-10 mx-auto mb-2"/>
                 <div id="modifier-defense" className="flex justify-between mb-6">
                     <div className="flex flex-col px-1 w-1/2">
-                        <h3 className="max-w-full"><span className="font-medium text-center">2X</span> From</h3>
+                        <h3 className="max-w-full truncate mb-2"><IconMinus
+                            className="w-4 h-4 inline rounded-full bg-rose-600 mr-1"/><span
+                            className="font-medium text-center">2X</span> From</h3>
 
                         {typeData
                             ? typeData.damage_relations.double_damage_from.map((ddfr: any) =>
@@ -93,7 +105,9 @@ export default function PokeSidebar({pokemonId}: { pokemonId: number }) {
                         }
                     </div>
                     <div className="flex flex-col px-1 w-1/2">
-                        <h3 className="max-w-full truncate"><span className="font-medium text-center">1/2 </span>
+                        <h3 className="max-w-full truncate mb-2 "><IconTick
+                            className="w-4 h-4 inline rounded-full bg-green-600 mr-1"/><span
+                            className="font-medium text-center">1/2 </span>
                             From</h3>
 
                         {typeData
