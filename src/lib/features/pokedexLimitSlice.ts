@@ -6,7 +6,7 @@ export type PokedexLimitState = {
 }
 
 const initialState: PokedexLimitState = {
-    value: 30,
+    value: 25,
 }
 
 export const pokedexLimitSlice = createSlice({
