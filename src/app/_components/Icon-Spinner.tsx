@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Spinner({className}: { className: string }) {
+function IconSpinner({className}: { className: string }) {
     return (
         <div className="mx-auto">
             <svg aria-hidden="true"
@@ -18,4 +18,4 @@ function Spinner({className}: { className: string }) {
     );
 }
 
-export default Spinner;
+export default IconSpinner;
