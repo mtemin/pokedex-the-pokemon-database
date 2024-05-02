@@ -7,6 +7,5 @@ export async function getType(type: string) {
         headers: {"content-type": "application/json"},
         // data: {"query": getTypeQuery}
     })
-
-}
+};
 
