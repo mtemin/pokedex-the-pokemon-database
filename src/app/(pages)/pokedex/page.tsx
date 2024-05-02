@@ -76,39 +76,8 @@ function Pokedex() {
             <div className="container mx-auto">
                 <Navbar/>
             </div>
-            <div id="filtering" className="container my-3 flex justify-between">
-                <p className="mr-auto font-medium text-lg">
-                    Filter By Types
-                </p>
-                <div className="types flex items-center gap-2">
-                    {pokemonTypes.map((type: string) =>
-                        <div key={type}
-                             className="flex justify-center items-center rounded transition duration-300 border border-[var(--pokemon-bg)] p-1"
-                        >
-                            <p id={`${type}-type-text`}
-                               className="z-[1] relative transition duration-300 opacity-0 mr-[-2rem]">
-                                {type}
-                            </p>
-                            <Image
-                                onMouseEnter={() => {
-                                    document.getElementById(`${type}-type-text`)?.classList.remove('hidden', 'bg-green-600')
-                                }}
-                                onMouseLeave={() => {
-                                    document.getElementById(`${type}-type-text`)?.classList.add('t', 'bg-green-600')
-                                }}
-
-                                id={`${type}-type-icon`} key={type} src={`/Pokemon_Type_Icon_${type}.png`}
-                                alt={`${type} Type Icon`}
-                                width={35}
-                                height={35} className="cursor-pointer z-[2] relative"/>
-                        </div>
-                    )}
-                </div>
-
-            </div>
             <section id="pokedex"
-                     className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 gap-1 justify-between items-center container bg-[var(--background-card)]  rounded-t mt-3">
-
+                     className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
                 {pokedexData
                     ? pokedexData.map((pokemon: any) =>
                         <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>

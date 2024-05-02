@@ -17,6 +17,9 @@ function Navbar() {
                 <Link href={randomPokemonURL}
                       className="px-4 py-2 text-2xl font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-bg)] cursor-pointer capitalize">Random
                     Pokemon</Link>
+                <Link href="/types"
+                      className="px-4 py-2 text-2xl font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-bg)] cursor-pointer capitalize">Pokemons
+                    By Type</Link>
 
             </ul>
         </nav>
