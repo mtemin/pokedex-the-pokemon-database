@@ -12,9 +12,9 @@ import IconSpinner from "@/app/_components/Icon-Spinner";
 import PokemonCard from "@/app/_components/PokemonCard";
 
 function Pokedex() {
-    const pokedexLimit = useAppSelector((state: any) => state.pokedexLimit.value)
+    const pokedexLimit = useAppSelector((state: any) => state.pokedexLimit.value);
     const {ref, inView, entry} = useInView();
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
     const VisibilitySensor = require('react-visibility-sensor');
     const pokemonTypes = [
         "Bug",
