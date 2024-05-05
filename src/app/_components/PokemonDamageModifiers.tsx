@@ -28,7 +28,7 @@ export default function PokemonDamageModifiers({pokemonId}: { pokemonId: number 
 
     return (
         <aside id="sidebar"
-               className="m-3 overflow-y-scroll col-span-2 w-auto h-[calc(100vh-90px)] flex flex-col justify-between scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+               className="m-3 max-[1000px]:mt-0 overflow-y-scroll col-span-2 w-auto max-[1000px]:w-[calc(50%-1.25rem)] max-[1000px]:mr-1.5 h-[calc(100vh-90px)] flex flex-col justify-between scrollbar-thumb-sky-700 scrollbar-track-sky-300 max-[1000px]:order-2">
             <div className="bg-[var(--background-card)] rounded-t">
                 <Image
                     src="/Pokédex_logo.png"
