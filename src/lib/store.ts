@@ -1,12 +1,14 @@
 import {configureStore} from '@reduxjs/toolkit'
 import pokedexLimitReducer from "@/lib/features/pokedexLimitSlice";
 import pokemonSideReducer from "@/lib/features/pokemonSideSlice";
+import selectedTypeReducer from "@/lib/features/selectedTypeSlice";
 // ...
 
 export const store = configureStore({
     reducer: {
         pokedexLimit: pokedexLimitReducer,
-        pokemonSide: pokemonSideReducer
+        pokemonSide: pokemonSideReducer,
+        selectedType: selectedTypeReducer,
     },
 })
 
