@@ -7,42 +7,22 @@ import useTypeQuery from "@/app/_hooks/useTypeQuery";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
 import {setType} from "@/lib/features/selectedTypeSlice";
 import Link from "next/link";
+import Skeleton from "@/app/_components/Skeleton";
+import PokemonTypes from "@/app/_components/PokemonTypes";
+import PokemonSearch from "@/app/_components/PokemonSearch";
+import pokemonSearch from "@/app/_components/PokemonSearch";
+
 
 function Page() {
     const dispatch = useAppDispatch()
-
-    const pokemonTypes = [
-        "Bug",
-        "Dark",
-        "Dragon",
-        "Electric",
-        "Fairy",
-        "Fighting",
-        "Fire",
-        "Flying",
-        "Ghost",
-        "Grass",
-        "Ground",
-        "Ice",
-        "Normal",
-        "Poison",
-        "Psychic",
-        "Rock",
-        "Steel",
-        "Water"
-    ]
-    // let selectedType = "fire";
     let selectedType = useAppSelector((state: any) => state.selectedType.value)
     const {
         data: pokedexByTypeData,
         isLoading: isPokedexByTypeLoading,
         isError: isPokedexByTypeError
     } = useTypeQuery(selectedType);
-    if (isPokedexByTypeLoading) {
-        console.log(`loading ${selectedType} pokemons`)
-    }
-    if (pokedexByTypeData) {
 
+    if (pokedexByTypeData) {
         console.log(pokedexByTypeData.pokemon)
     }
 
@@ -51,43 +31,38 @@ function Page() {
         return result[result.length - 2];
     }
 
-    getPokemonIdFromURL("https://pokeapi.co/api/v2/pokemon/7/")
+    if (pokedexByTypeData) {
+        let filtered = pokedexByTypeData.filter((pokemon: any) => {
+            if (!pokemonSearch) {
+                return pokedexByTypeData;
+            } else {
+                if ((pokemon.pokemon.name).toLowerCase().includes(pokemonSearch)) {
+                    return pokemon
+                }
+            }
+        });
+        console.log(filtered)
 
+    }
     return (
         <main className="container mx-auto max-[640px]:p-4">
 
             <Navbar/>
-            <div className="flex justify-start items-center">
-                <input type="search" placeholder="Search for a pokemon..."
-                       className="relative max-sm:w-full text-[var(--foreground)] mt-4 mr-[-2rem] bg-[var(--background)] border-0 border-b-2 border-[var(--foreground-card)]"/>
-                <IconSearch className="w-8 h-8 absolute text-black bg-black z-[2]"/>
-            </div>
+            <PokemonSearch/>
+
             <p className="mr-auto font-medium text-lg my-2">
                 Filter By Types
             </p>
-            <section id="type-filters"
-                     className="types grid grid-cols-9 max-[800px]:grid-cols-6 max-[640px]:grid-cols-3 gap-2 my-2">
-                {pokemonTypes.map((type: string) =>
-                    <div key={type}
-                         onClick={() => {
-                             dispatch(setType({type}));
-                         }}
-                         className="flex flex-col justify-center items-center rounded transition cursor-pointer border border-[var(--pokemon-bg-shadow)] duration-300 p-2 hover:border-[var(--pokemon-fg)]"
-                    >
-                        <Image
-                            id={`${type}-type-icon`} key={type} src={`/Pokemon_Type_Icon_${type}.png`}
-                            alt={`${type} Type Icon`}
-                            width={35}
-                            height={35} className="cursor-pointer z-[2] relative mb-auto"/>
-                        <p id={`${type}-type-text`}
-                           className="z-[1] relative mr-2 transition duration-300 text-center">
-                            {type}
-                        </p>
-                    </div>
-                )}
-            </section>
-
+            <PokemonTypes/>
             <section id="pokedex-by-type">
+                {isPokedexByTypeLoading &&
+                    <>
+                        {Array.from({length: 25}, (_, i) => (
+                            <Skeleton key={i} className="h-10 w-full my-2 rounded-none"/>
+                        ))
+                        }
+                    </>
+                }
                 {pokedexByTypeData &&
                     pokedexByTypeData.pokemon.map((pokemon: any) =>
                         <Link key={pokemon.id} href={`/pokemon/${getPokemonIdFromURL(pokemon.pokemon.url)}`}>
