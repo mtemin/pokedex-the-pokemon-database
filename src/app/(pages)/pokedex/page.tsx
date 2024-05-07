@@ -85,7 +85,7 @@ function Pokedex() {
                         <div key={i}
                              className="m-4 p-4 flex flex-col justify-center items-center border-2 border-[var(--pokemon-bg-shadow)] rounded-2xl hover:shadow-inside transition-all duration-300 bg-[var(--pokemon-bg)]">
                             <Skeleton className="w-[128px] h-[128px] mb-2 bg-[var(--pokemon-bg-shadow)]"></Skeleton>
-                            <Skeleton className="h-4 w-2/3 bg-[var(--pokemon-bg-shadow)]"></Skeleton>
+                            <Skeleton className="h-4 w-[128px] bg-[var(--pokemon-bg-shadow)]"></Skeleton>
                         </div>
                     ))
                 }
