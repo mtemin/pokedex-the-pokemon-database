@@ -7,6 +7,8 @@ import './globals.css'
 import {Provider as ReduxProvider} from 'react-redux'
 import ReactQueryClient from "@/app/ReactQueryClient";
 import {store} from "@/lib/store";
+import Error from '@/app/_components/error'
+import Navbar from "@/app/_components/Navbar";
 
 // const inter = Inter({ subsets: ['latin'] })
 const ubuntu = Ubuntu({
@@ -29,9 +31,10 @@ export default function RootLayout({
         <html lang="en">
         <ReactQueryClient>
             <ReduxProvider store={store}>
-
                 {/* <body className={ubuntu.className}>{children}</body> */}
+                {/*<ErrorBoundary fallback={<Error/>}>*/}
                 <body className="font-ubuntu">{children}</body>
+                {/*</ErrorBoundary>*/}
             </ReduxProvider>
         </ReactQueryClient>
         </html>
