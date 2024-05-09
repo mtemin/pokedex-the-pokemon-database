@@ -65,14 +65,7 @@ function Pokedex() {
 
     return (
         <main className="flex flex-col items-center bg-[var(--background)] px-8">
-            <Image
-                src="/Pokédex_logo.png"
-                width={250}
-                height={100}
-                className="relative px-4 py-5 mb-3 mx-auto"
-                alt="Pokedex Logo"
-                priority
-            />
+
             <div className="container mx-auto">
                 <Navbar/>
             </div>
