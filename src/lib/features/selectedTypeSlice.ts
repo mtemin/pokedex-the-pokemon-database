@@ -14,8 +14,8 @@ export const selectedTypeSlice = createSlice({
     initialState,
     reducers: {
         setType: (state, action) => {
-            state.value = (action.payload.type).toLowerCase();
-            // console.log(action.payload.type)
+            state.value = (action.payload.type).trim().toLowerCase();
+            console.log(action.payload.type);
         },
     },
 })
