@@ -1,15 +1,15 @@
 import React from 'react';
 import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
-import IconTurn from "@/app/_components/Icon-Turn";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
-import Skeleton from "@/app/_components/Skeleton";
 import {switchSide} from "@/lib/features/pokemonSideSlice";
 import IconChevronUp from "@/app/_components/Icon-ChevronUp";
+import IconTurn from "@/app/_components/Icon-Turn";
+import Skeleton from "@/app/_components/Skeleton";
+import PathName from "@/app/_components/PathName";
 import Link from "next/link";
-import {allowedDisplayValues} from "next/dist/compiled/@next/font/dist/constants";
 
 function PokemonShowcase({pokemonId}: { pokemonId: number }) {
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);
     const pokemonSide = useAppSelector((state: any) => state.pokemonSide.value)
     let nextPokemonId = parseInt(String(pokemonId)) + 1;
@@ -34,8 +34,8 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
                         className="w-12 h-12 max-[1000px]:w-8 max-[1000px]:h-8 cursor-pointer hover:bg-[--background-card] rotate-[-90deg]"/>
                     <p className="font-medium max-[1000px]:text-sm ">Previous <br/> Pokemon</p>
                 </Link>
-                {pokemonData
-                    ? <div id="pokemon-stripes" className="flex flex-col items-center justify-start">
+                {pokemonData &&
+                    <div id="pokemon-stripes" className="flex flex-col items-center justify-start">
                         {pokemonSide === 'front'
                             ? <img src={pokemonData.sprites.front_default}
                                    className="min-w-[192px] max-[1000px]:min-w-[128px]"
@@ -48,13 +48,24 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
                             <IconTurn
                                 className="rotate-[215deg] mt-6 w-6 h-6 transition-all duration-300 hover:text-[var(--foreground-card)]"/>
                         </button>
-
                     </div>
-                    : <div className="flex flex-col items-center"><Skeleton
+                }
+                {isPokemonLoading &&
+                    <div className="flex flex-col items-center"><Skeleton
                         className="h-[192px] w-[192px] max-[1000px]:w-[128px] max-[1000px]:h-[128px]"/>
                         <button>
                             <Skeleton className="mt-6 w-8 h-8 transition-all duration-700 hover:rotate-0"/>
                         </button>
+                    </div>
+                }
+                {isPokemonError &&
+                    <div className="flex flex-col items-center">
+                        <div style={{animation: "none"}}
+                             className="h-[192px] w-[192px] max-[1000px]:w-[128px] max-[1000px]:h-[128px] bg-rose-500 rounded"/>
+                        {/*<button>*/}
+                        <p className="text-lg font-medium mt-6">No Pokemon found with this id :
+                            <PathName isShort={true}/>
+                        </p>
                     </div>
                 }
 
