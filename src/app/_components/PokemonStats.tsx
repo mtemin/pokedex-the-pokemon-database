@@ -15,13 +15,13 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
 
     return (
         <aside id="pokemon-stats"
-               className='w-[15%] col-span-2 rounded bg-[var(--background-card)] m-3 p-2 overflow-y-scroll h-[calc(100vh-90px)] flex flex-col justify-between'>
+               className='font-pixel w-[15%] max-[1000px]:w-[calc(50%-1.25rem)]  col-span-2 rounded bg-[var(--background-card)] m-3 max-[1000px]:m-0 max-[1000px]:mr-3 p-2 overflow-y-scroll h-[calc(100vh-90px)] flex flex-col justify-between max-[1000px]:order-3'>
             <div id="query-keyword"
                  className="mb-3 p-2 text-center border-solid rounded border-2 border-[var(--pokemon-bg-shadow)]">
                 <p className='bg-opacity-90 font-bold text-lg'>Name</p>
                 {pokemonData
                     ? <p className='font-bold text-lg mb-5 capitalize'>{pokemonData.name}</p>
-                    : <Skeleton className="h-7 w-1/3 mb-5 mx-auto"/>
+                    : <Skeleton className="h-6 w-1/3 mb-5 mt-2 mx-auto"/>
                     // <div role="status" className="animate-pulse h-4 bg-gray-200 rounded dark:bg-gray-700 mb-4">
                     //   {/*<div className="h-4 bg-gray-200 rounded dark:bg-gray-700 mb-4">*/}
                     //   {/*</div>*/}
@@ -29,10 +29,10 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                 }
 
                 <p className="mb-2">Type(s)</p>
-                <div className="flex justify-center">
+                <div className="flex justify-center flex-wrap">
                     {pokemonData
                         ? pokemonData.types.map((pokemonType: any) => (
-                            <p key={pokemonType.type.name} className="capitalize px-2 mx-2  rounded"
+                            <p key={pokemonType.type.name} className="capitalize px-2 m-1  rounded"
                                style={{backgroundColor: `var(--type-${pokemonType.type.name})`}}
                             >
                                 {pokemonType.type.name}
@@ -43,7 +43,6 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                 </div>
 
                 <div className="flex items-center mt-6">
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                          className="lucide lucide-weight">
@@ -55,7 +54,7 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                     {
                         pokemonData
                             ? <p className="ml-auto font-medium">{pokemonData.weight}</p>
-                            : <Skeleton className="h-6 w-14 ml-auto "/>
+                            : <Skeleton className="h-6 mt-1 w-14 ml-auto "/>
                     }
                 </div>
             </div>
@@ -80,11 +79,11 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                     : Array.from({length: 6}, (_, index) => (
                         <div key={index} className="mb-2">
                             <div className="flex justify-between">
-                                <Skeleton className="mb-1 w-1/3 h-6"/>
-                                <Skeleton className="mb-1 w-1/5 h-6"/>
+                                <Skeleton className="mb-1 mt-2 w-1/3 h-4"/>
+                                <Skeleton className="mb-1 mt-2 w-1/5 h-4"/>
                             </div>
                             <Progress
-                                progress={100}
+                                progress={66}
                                 size="md"
                                 color='yellow'
                             />
