@@ -12,17 +12,12 @@ export async function getPokedexByType(type: string) {
     }
   }
 }
-
 `
-
     return axios({
         url: 'https://beta.pokeapi.co/graphql/v1beta',
         method: 'post',
         headers: {"content-type": "application/json"},
         data: {"query": getPokedexByTypeQuery}
     })
-
-    // let filtered = data.filter(())
-
 }
 
