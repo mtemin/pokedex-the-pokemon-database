@@ -10,7 +10,7 @@ export function usePokedexQuery(limit: number, offset: number) {
         );
     };
 
-    return useQuery({queryKey, queryFn});
+    return useQuery({queryKey, queryFn, enabled: false});
 }
 
 export default usePokedexQuery;
