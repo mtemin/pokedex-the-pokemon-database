@@ -13,17 +13,6 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);
     const pokemonSide = useAppSelector((state: any) => state.pokemonSide.value)
     let nextPokemonId = parseInt(String(pokemonId)) + 1;
-    console.log(pokemonSide)
-    // if (isPokemonLoading)
-    //     return (
-    //         <div className="flex flex-col items-center justify-start my-10">
-    //             <Skeleton className="h-[192px] w-[192px]"/>
-    //             <button>
-    //                 <Skeleton className="mt-6 w-8 h-8 transition-all duration-700 hover:rotate-0"/>
-    //             </button>
-    //         </div>
-    //     )
-    // // if (pokemonData)
     return (
         <main
             className='text-center max-[1000px]:w-full m-3 max-[1000px]:mt-3 flex flex-grow max-[1000px]:order-1 mx-3 rounded bg-[var(--background-card)]'>
