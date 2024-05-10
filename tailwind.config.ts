@@ -8,7 +8,10 @@ const config: Config = {
         'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
     ],
     theme: {
-        fontFamily: {},
+        fontFamily: {
+            'terminal-grotesque': ['Terminal Grotesque'],
+            'ubuntu': ['Ubuntu'],
+        },
         extend: {
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
