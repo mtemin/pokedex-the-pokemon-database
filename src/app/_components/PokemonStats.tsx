@@ -9,9 +9,7 @@ import Skeleton from "@/app/_components/Skeleton";
 
 export default function PokemonStats({pokemonId}: { pokemonId: number }) {
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);
-    // console.log("=>(PokemonStats.tsx:12) pokemonTYPES", pokemonData.types);
     // const pokemonData = null;
-    console.log(pokemonData)
 
     return (
         <aside id="pokemon-stats"
@@ -31,7 +29,7 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                 <p className="mb-2">Type(s)</p>
                 <div className="flex justify-center flex-wrap">
                     {pokemonData
-                        ? pokemonData.types.map((pokemonType: any) => (
+                        ? pokemonData.types.map((pokemonType: Type) => (
                             <p key={pokemonType.type.name} className="capitalize px-2 m-1  rounded"
                                style={{backgroundColor: `var(--type-${pokemonType.type.name})`}}
                             >
@@ -62,21 +60,21 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                  className='mb-3 grid-cols-8 p-2 border-solid rounded border-2 border-[var(--pokemon-bg-shadow)]'>
                 <p className='col-span-8 text-center font-bold text-lg'>Stats</p>
                 {pokemonData
-                    ? pokemonData.stats.map((pokemonStats: any) => (
+                    ? pokemonData.stats.map((pokemonStats: Stat) => (
                         <div key={pokemonStats.stat.name} className='mb-2'>
                             <div className="flex justify-between">
                                 <p className='mb-1 capitalize truncate'>{pokemonStats.stat.name}</p>
                                 <p className='mb-1'>{pokemonStats.base_stat}</p>
                             </div>
                             <Progress
-                                progress={pokemonStats.base_stat / 3}
+                                progress={pokemonStats.base_stat / 1.5}
                                 size="md"
                                 color='yellow'
                                 textLabel={pokemonStats.stat.name}
                             />
                         </div>
                     ))
-                    : Array.from({length: 6}, (_, index) => (
+                    : Array.from({length: 6}, (_, index: number) => (
                         <div key={index} className="mb-2">
                             <div className="flex justify-between">
                                 <Skeleton className="mb-1 mt-2 w-1/3 h-4"/>
@@ -100,7 +98,7 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
                 <div
                     className="flex flex-col mb-3">
                     {pokemonData
-                        ? pokemonData.abilities.map((pokemonAbility: any) =>
+                        ? pokemonData.abilities.map((pokemonAbility: Ability) =>
                             <p key={pokemonAbility.ability.name}
                                className="truncate capitalize py-1">&#x2022; {pokemonAbility.ability.name}</p>
                         )
