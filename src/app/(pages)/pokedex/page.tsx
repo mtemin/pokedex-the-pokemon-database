@@ -37,10 +37,6 @@ function Pokedex() {
         "Water"
     ]
 
-    function onChange(isVisible: boolean) {
-        console.log('Element is now %s', isVisible ? 'visible' : 'hidden');
-    }
-
     function loadMorePokemons() {
         dispatch(loadMore())
         refetch().then(res => {
@@ -49,10 +45,9 @@ function Pokedex() {
     }
 
     useEffect(() => {
-        // if (inView)
         loadMorePokemons()
-        console.log("in view?")
-        console.log(inView)
+        // console.log("in view?")
+        // console.log(inView)
     }, [inView])
 
     const {
@@ -61,7 +56,6 @@ function Pokedex() {
         isError: isPokedexError,
         refetch
     } = usePokedexQuery(pokedexLimit, 0);
-    console.log(pokedexData)
 
     return (
         <main className="flex flex-col items-center bg-[var(--background)] px-8">
@@ -72,7 +66,7 @@ function Pokedex() {
             <section id="pokedex"
                      className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
                 {pokedexData
-                    ? pokedexData.map((pokemon: any) =>
+                    ? pokedexData.map((pokemon: Pokemon) =>
                         <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>
                     ) : Array.from({length: 25}, (_, i) => (
                         <div key={i}
