@@ -10,7 +10,6 @@ import Link from "next/link";
 
 
 export default function Home() {
-    // redirect(`/pokedex`) // Navigate to the new post page
     function getRandomInt(min: number, max: number) {
         const minCeiled = Math.ceil(min);
         const maxFloored = Math.floor(max);
@@ -45,7 +44,7 @@ export default function Home() {
                 <Link href="/types">
                     <section
                         className="grid grid-cols-6 w-[70%] container justify-between mx-auto border-2 border-[var(--pokemon-bg)] rounded-2xl p-5 mt-6 transition-all hover:border-[var(--pokemon-fg)] duration-300">
-                        <p className="col-span-4 text-xl">List pokemons by their element type</p>
+                        <p className="col-span-4 text-xl">List all pokemons or filter by their element type or name</p>
                         <Image src="/Pokemon_Type_Icons.png" className="col-span-2 max-h-[200px] mx-auto"
                                alt="Pokemon Page"
                                width="9999"
