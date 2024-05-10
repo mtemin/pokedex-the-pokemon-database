@@ -2,6 +2,8 @@ import {configureStore} from '@reduxjs/toolkit'
 import pokedexLimitReducer from "@/lib/features/pokedexLimitSlice";
 import pokemonSideReducer from "@/lib/features/pokemonSideSlice";
 import selectedTypeReducer from "@/lib/features/selectedTypeSlice";
+import pokemonSearchReducer from "@/lib/features/pokemonSearchSlice";
+import currentPokemonReducer from "@/lib/features/currentPokemonSlice";
 // ...
 
 export const store = configureStore({
@@ -9,6 +11,8 @@ export const store = configureStore({
         pokedexLimit: pokedexLimitReducer,
         pokemonSide: pokemonSideReducer,
         selectedType: selectedTypeReducer,
+        pokemonSearch: pokemonSearchReducer,
+        currentPokemon: currentPokemonReducer,
     },
 })
 
