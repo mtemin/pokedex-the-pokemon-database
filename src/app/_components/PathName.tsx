@@ -5,7 +5,6 @@ function PathName({isShort}: { isShort: boolean }) {
     let path: string = usePathname()
     if (isShort) {
         path = `${path.split('/')[2]}`
-        // console.log(path.split('/')[2])
     }
 
     let nonLatinDetected: boolean = false;
