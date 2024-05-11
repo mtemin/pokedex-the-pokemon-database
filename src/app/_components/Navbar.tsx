@@ -9,10 +9,7 @@ function Navbar() {
         const maxFloored = Math.floor(max);
         return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
     }
-
-//@ts-ignore
-    console.log(document?.getElementById('nav-pokemon'));
-
+    
     let randomPokemonURL = `/pokemon/${getRandomInt(0, 1025)}`
     return (
         <nav className="rounded bg-[var(--background-card)] mt-3 w-full">
