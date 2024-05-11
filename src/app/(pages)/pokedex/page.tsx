@@ -3,17 +3,15 @@ import React, {useEffect} from 'react';
 import usePokedexQuery from "@/app/_hooks/usePokedexQuery";
 import Navbar from "@/app/_components/Navbar";
 import Skeleton from "@/app/_components/Skeleton";
-import Link from "next/link";
 import {useAppSelector, useAppDispatch} from '@/lib/hooks'
 import {useInView} from 'react-intersection-observer';
 import {loadMore} from "@/lib/features/pokedexLimitSlice";
-import Image from "next/image";
 import IconSpinner from "@/app/_components/Icon-Spinner";
 import PokemonCard from "@/app/_components/PokemonCard";
 
 function Pokedex() {
     const pokedexLimit = useAppSelector((state: any) => state.pokedexLimit.value);
-    const {ref, inView, entry} = useInView();
+    const {ref, inView} = useInView();
     const dispatch = useAppDispatch();
     const VisibilitySensor = require('react-visibility-sensor');
     const pokemonTypes = [
@@ -79,8 +77,6 @@ function Pokedex() {
             </section>
             <div ref={ref}
                  className="rounded-b bg-[var(--background-card)] w-full container flex justify-center">
-
-                {/* eslint-disable-next-line react/jsx-no-undef */}
                 <IconSpinner
                     className="my-10 inline w-12 h-12 mx-auto text-[var(--background-card)] animate-spin dark:text-gray-600 fill-[var(--pokemon-fg)]"/>
             </div>
