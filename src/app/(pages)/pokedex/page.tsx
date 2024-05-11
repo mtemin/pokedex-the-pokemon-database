@@ -13,7 +13,6 @@ function Pokedex() {
     const pokedexLimit = useAppSelector((state: any) => state.pokedexLimit.value);
     const {ref, inView} = useInView();
     const dispatch = useAppDispatch();
-    const VisibilitySensor = require('react-visibility-sensor');
     const pokemonTypes = [
         "Bug",
         "Dark",
