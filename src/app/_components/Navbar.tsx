@@ -34,7 +34,7 @@ function Navbar() {
                 <GoToPokemon/>
                 <span onClick={toggleNavbar} className=" ml-auto my-1 mr-2">
                     <IconArrowUpDown
-                        className="w-6 h-6 p-1 rounded-full border border-[var(--foreground-card)] text-[var(--foreground-card)]hidden max-sm:block cursor-pointer"/>
+                        className="w-6 h-6 p-1 rounded-full border border-[var(--foreground-card)] text-[var(--foreground-card)] hidden max-sm:block cursor-pointer"/>
                 </span>
             </ul>
         </nav>
