@@ -19,7 +19,7 @@ function Navbar() {
     let randomPokemonURL = `/pokemon/${getRandomInt(0, 1025)}`
     return (
         <nav id="navbar" style={{marginTop: `${toggleNavbar}`}}
-             className="rounded max-sm:fixed max-sm:mx-[-2rem] max-sm:mt-0 max-sm:rounded-none bg-[var(--background-card)] z-10 mt-3 w-full border-b border-[var(--foreground-card)] transition-all duration-500 ">
+             className="rounded max-sm:fixed max-sm:mx-[-2rem] max-sm:mt-0 max-sm:rounded-none bg-[var(--background-card)] z-10 mt-3 w-full max-sm:border-b border-[var(--foreground-card)] transition-all duration-500 ">
             <ul className="flex max-sm:flex-col justify-center items-center">
                 <Link href="/"
                       className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Home</Link>
