@@ -13,7 +13,7 @@ export default function PokemonStats({pokemonId}: { pokemonId: number }) {
 
     return (
         <aside id="pokemon-stats"
-               className='font-pixel w-[15%] max-[1000px]:w-[calc(50%-1.25rem)]  col-span-2 rounded bg-[var(--background-card)] m-3 max-[1000px]:m-0 max-[1000px]:mr-3 p-2 overflow-y-scroll h-[calc(100vh-90px)] flex flex-col justify-between max-[1000px]:order-3'>
+               className='font-pixel w-[15%] max-[1000px]:w-[calc(50%-1.25rem)]  col-span-2 rounded bg-[var(--background-card)] m-3 max-[1000px]:m-0 max-[1000px]:mr-3 p-2 overflow-y-scroll h-[calc(100vh-100px)] flex flex-col justify-between max-[1000px]:order-3'>
             <div id="query-keyword"
                  className="mb-3 p-2 text-center border-solid rounded border-2 border-[var(--pokemon-bg-shadow)]">
                 <p className='bg-opacity-90 font-bold text-lg'>Name</p>
