@@ -33,9 +33,12 @@ export default function Home() {
 
                     <section
                         className="grid grid-cols-6 w-[70%] container justify-between mx-auto border-2 border-[var(--pokemon-bg)] rounded-2xl p-3 mt-6 transition-all hover:border-[var(--pokemon-fg)] duration-300">
-                        <p className="col-span-4 text-xl">Browse through 1025 pokemons slowly with infinite
+                        <p className="col-span-4 max-md:col-span-6 max-md:mb-4 text-xl">Browse through 1025 pokemons
+                            slowly with
+                            infinite
                             scrolling</p>
-                        <Image src="/pokedex-page-cropped.png" className="col-span-2 max-h-[200px] mx-auto"
+                        <Image src="/pokedex-page-cropped.png"
+                               className="col-span-2 max-md:col-span-6 max-h-[200px] mx-auto"
                                alt="Pokemon Page"
                                width="99999"
                                height="200"></Image>
@@ -44,8 +47,11 @@ export default function Home() {
                 <Link href="/types">
                     <section
                         className="grid grid-cols-6 w-[70%] container justify-between mx-auto border-2 border-[var(--pokemon-bg)] rounded-2xl p-5 mt-6 transition-all hover:border-[var(--pokemon-fg)] duration-300">
-                        <p className="col-span-4 text-xl">List all pokemons or filter by their element type or name</p>
-                        <Image src="/Pokemon_Type_Icons.png" className="col-span-2 max-h-[200px] mx-auto"
+                        <p className="col-span-4 max-md:col-span-6 max-md:mb-4 text-xl">List all pokemons or filter by
+                            their element
+                            type or name</p>
+                        <Image src="/Pokemon_Type_Icons.png"
+                               className="col-span-2 max-md:col-span-6 max-h-[200px] mx-auto"
                                alt="Pokemon Page"
                                width="9999"
                                height="200"></Image>
@@ -54,11 +60,13 @@ export default function Home() {
                 <Link href={`${randomPokemonURL}`}>
                     <section
                         className="grid grid-cols-6 w-[70%] container justify-between mx-auto border-2 border-[var(--pokemon-bg)] rounded-2xl p-3 mt-6 transition-all hover:border-[var(--pokemon-fg)] duration-300">
-                        <p className="col-span-4 text-xl">Click to go to random pokemon&apos;s detail page.
+                        <p className="col-span-4 max-md:col-span-6 max-md:mb-4 text-xl">Click to go to random
+                            pokemon&apos;s detail
+                            page.
                             <br/>
                             Enter its id or name and go ta a specific pokemon.
                         </p>
-                        <Image src="/pokemon-page.png" className="col-span-2 mx-auto"
+                        <Image src="/pokemon-page.png" className="col-span-2 max-md:col-span-6 mx-auto"
                                alt="Pokemon Page"
                                width="9999"
                                height="200"></Image>
