@@ -14,7 +14,11 @@ export const currentPokemonSlice = createSlice({
     initialState,
     reducers: {
         setCurrentPokemon: (state, action) => {
-            state.value = (action.payload).toLowerCase();
+            if (typeof action.payload === 'string') {
+                state.value = (action.payload).toLowerCase();
+            } else {
+                state.value = action.payload
+            }
         },
     },
 })
