@@ -17,7 +17,7 @@ function GoToPokemon() {
                    placeholder="Go to pokemon..." value={currentPokemon}/>
             <Link href={`/pokemon/${currentPokemon}`}>
                 <IconChevronUp
-                    className="rotate-90 w-8 h-8 ml-[-3.5rem] cursor-pointer text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)]"/>
+                    className="rotate-90 w-8 h-8 ml-[-3.5rem] max-sm:ml-[-2.5rem] cursor-pointer text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)]"/>
             </Link>
         </div>
     );
