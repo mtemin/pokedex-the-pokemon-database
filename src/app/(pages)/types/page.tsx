@@ -8,7 +8,7 @@ import PokedexByTypeList from "@/app/_components/PokedexByTypeList";
 function Page() {
 
     return (
-        <main className="container mx-auto max-[640px]:p-4">
+        <main className="container mx-auto max-sm:p-4 max-sm:pt-0">
             <Navbar/>
             <PokemonSearch/>
             <p className="mr-auto font-medium text-lg my-2">
