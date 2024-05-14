@@ -9,12 +9,12 @@ import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
 function Pokemon({params}: { params: { id: number } }) {
 
     return (
-        <section className="h-[98vh] overflow-hidden max-[1000px]:overflow-y-scroll">
+        <section className="h-auto overflow-hidden max-[1000px]:overflow-y-scroll px-3">
 
-            <div className="mx-3">
+            <div className="">
                 <Navbar/>
             </div>
-            <div className="w-screen flex flex-wrap  justify-between mx-auto">
+            <div className="w-auto flex flex-wrap justify-between mx-auto">
                 <PokemonDamageModifiers pokemonId={params.id}></PokemonDamageModifiers>
                 <PokemonShowcase pokemonId={params.id}></PokemonShowcase>
                 <PokemonStats pokemonId={params.id}></PokemonStats>
