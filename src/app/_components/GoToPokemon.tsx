@@ -13,7 +13,7 @@ function GoToPokemon() {
 
             <input type="text" id="nav-pokemon"
                    onChange={event => dispatch(setCurrentPokemon(event.target.value))}
-                   className="w-[200px] mx-4 my-2 text-lg max-[640px]:text-sm max-[640px]:mx-2 max-[640px]:my-1 text-[var(--foreground-card)] hover:border-[var(--pokemon-fg)] focus:border-[var(--pokemon-fg)] bg-[var(--background-card)] border border-[var(--foreground-card)] rounded-lg"
+                   className="w-[200px] mx-4 my-2 text-md truncate max-[640px]:text-sm max-[640px]:mx-2 max-[640px]:my-1 text-[var(--foreground-card)] hover:border-[var(--pokemon-fg)] focus:border-[var(--pokemon-fg)] bg-[var(--background-card)] border border-[var(--foreground-card)] rounded-lg"
                    placeholder="Go to pokemon..." value={currentPokemon}/>
             <Link href={`/pokemon/${currentPokemon}`}>
                 <IconChevronUp
