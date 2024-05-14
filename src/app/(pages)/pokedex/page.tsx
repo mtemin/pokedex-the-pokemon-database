@@ -5,12 +5,12 @@ import Navbar from "@/app/_components/Navbar";
 import Skeleton from "@/app/_components/Skeleton";
 import {useAppSelector, useAppDispatch} from '@/lib/hooks'
 import {useInView} from 'react-intersection-observer';
-import {loadMore} from "@/lib/features/pokedexLimitSlice";
+import pokedexLimitSlice, {loadMore} from "@/lib/features/pokedexLimitSlice";
 import IconSpinner from "@/app/_components/Icon-Spinner";
 import PokemonCard from "@/app/_components/PokemonCard";
 
 function Pokedex() {
-    const pokedexLimit = useAppSelector((state: any) => state.pokedexLimit.value);
+    const pokedexLimit = useAppSelector((state) => state.pokedexLimit.value);
     const {ref, inView} = useInView();
     const dispatch = useAppDispatch();
     const pokemonTypes = [
@@ -55,21 +55,21 @@ function Pokedex() {
     } = usePokedexQuery(pokedexLimit, 0);
 
     return (
-        <main className="flex flex-col items-center bg-[var(--background)] px-8">
+        <main className="flex flex-col items-center bg-[var(--background)] px-8 max-sm:px-0">
 
-            <div className="container mx-auto">
+            <div className="container max-sm:ml-8">
                 <Navbar/>
             </div>
             <section id="pokedex"
-                     className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 max-sm:mt-4 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
+                     className="grid grid-cols-5  max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 max-sm:mt-4 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
                 {pokedexData
                     ? pokedexData.map((pokemon: Pokemon) =>
-                        <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>
+                        <PokemonCard key={pokemon.id} pokemon={pokemon}/>
                     ) : Array.from({length: 25}, (_, i) => (
                         <div key={i}
                              className="m-4 p-4 flex flex-col justify-center items-center border-2 border-[var(--pokemon-bg-shadow)] rounded-2xl hover:shadow-inside transition-all duration-300 bg-[var(--pokemon-bg)]">
-                            <Skeleton className="w-[128px] h-[128px] mb-2 bg-[var(--pokemon-bg-shadow)]"></Skeleton>
-                            <Skeleton className="h-4 w-[128px] bg-[var(--pokemon-bg-shadow)]"></Skeleton>
+                            <Skeleton className="w-[128px] h-[128px] mb-2 bg-[var(--pokemon-bg-shadow)]"/>
+                            <Skeleton className="h-4 w-[128px] bg-[var(--pokemon-bg-shadow)]"/>
                         </div>
                     ))
                 }
