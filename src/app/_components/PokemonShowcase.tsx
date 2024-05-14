@@ -16,7 +16,7 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
 
     return (
         <main
-            className='text-center max-[1000px]:w-full m-3 max-[1000px]:mt-3 flex flex-grow max-[1000px]:order-1 mx-3 rounded bg-[var(--background-card)]'>
+            className='text-center max-[1000px]:w-full mt-3 max-[1000px]:mt-3 flex flex-grow max-[1000px]:order-1 rounded bg-[var(--background-card)] max-[1000px]:mb-3'>
             <section id="pokemon-showcase"
                      className="w-full flex justify-between items-center ml-2 max-[1000px]:m-0 p-4">
                 {pokemonData
