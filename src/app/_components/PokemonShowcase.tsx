@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
 import {switchSide} from "@/lib/features/pokemonSideSlice";
@@ -7,22 +7,27 @@ import IconTurn from "@/app/_components/Icon-Turn";
 import Skeleton from "@/app/_components/Skeleton";
 import PathName from "@/app/_components/PathName";
 import Link from "next/link";
+import {setCurrentPokemon} from "@/lib/features/currentPokemonSlice";
 
 function PokemonShowcase({pokemonId}: { pokemonId: number }) {
     const dispatch = useAppDispatch();
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);
     const pokemonSide = useAppSelector((state: any) => state.pokemonSide.value)
-    let nextPokemonId = parseInt(String(pokemonId)) + 1;
+
     return (
         <main
             className='text-center max-[1000px]:w-full m-3 max-[1000px]:mt-3 flex flex-grow max-[1000px]:order-1 mx-3 rounded bg-[var(--background-card)]'>
             <section id="pokemon-showcase"
                      className="w-full flex justify-between items-center ml-2 max-[1000px]:m-0 p-4">
-                <Link href={`/pokemon/${pokemonId - 1}`}>
-                    <IconChevronUp
-                        className="w-12 h-12 max-[1000px]:w-8 max-[1000px]:h-8 cursor-pointer hover:bg-[--background-card] rotate-[-90deg]"/>
-                    <p className="font-medium max-[1000px]:text-sm ">Previous <br/> Pokemon</p>
-                </Link>
+                {pokemonData
+                    ? <Link href={`/pokemon/${pokemonData?.id - 1}`}
+                            onClick={() => dispatch(setCurrentPokemon(pokemonId + 1))}>
+                        <IconChevronUp
+                            className="w-12 h-12 max-[1000px]:w-8 max-[1000px]:h-8 cursor-pointer hover:bg-[--background-card] rotate-[-90deg]"/>
+                        <p className="font-medium max-[1000px]:text-sm ">Previous <br/> Pokemon</p>
+                    </Link>
+                    : <Skeleton className="w-12 h-20"/>
+                }
                 {pokemonData &&
                     <div id="pokemon-stripes" className="flex flex-col items-center justify-start">
                         {pokemonSide === 'front'
@@ -57,11 +62,15 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
                         </p>
                     </div>
                 }
-
-                <Link href={`/pokemon/${nextPokemonId}`} className="flex flex-col items-center justify-center">
-                    <IconChevronUp className="w-12 h-12 cursor-pointer hover:bg-[--background-card] rotate-90"/>
-                    <p className="font-medium max-[1000px]:text-sm">Next <br/> Pokemon</p>
-                </Link>
+                {pokemonData
+                    ? <Link href={`/pokemon/${pokemonData?.id + 1}`}
+                            onClick={() => dispatch(setCurrentPokemon(pokemonId + 1))}
+                            className="flex flex-col items-center justify-center">
+                        <IconChevronUp className="w-12 h-12 cursor-pointer hover:bg-[--background-card] rotate-90"/>
+                        <p className="font-medium max-[1000px]:text-sm">Next <br/> Pokemon</p>
+                    </Link>
+                    : <Skeleton className="w-12 h-20"/>
+                }
             </section>
         </main>
     );
