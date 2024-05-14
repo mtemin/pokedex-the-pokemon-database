@@ -61,7 +61,7 @@ function Pokedex() {
                 <Navbar/>
             </div>
             <section id="pokedex"
-                     className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 max-sm:mt-16 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
+                     className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[480px]:grid-cols-1 max-[480px]:p-10 max-sm:mt-4 gap-1 justify-between items-center container bg-[var(--background-card)] rounded-t mt-3">
                 {pokedexData
                     ? pokedexData.map((pokemon: Pokemon) =>
                         <PokemonCard key={pokemon.id} pokemon={pokemon}></PokemonCard>
