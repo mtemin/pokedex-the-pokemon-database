@@ -23,13 +23,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Preview ( Önizleme )
 
 ![Homepage - Dark](https://i.hizliresim.com/sl4w0v1.jpg)
-![Homepage - Light](https://i.hizliresim.com/5fg0xlv.jpg)
 
 ![Pokedex Page - Dark](https://i.hizliresim.com/l8v05vg.jpg)
-![Pokedex Page - Light](https://i.hizliresim.com/43d15ux.jpg)
 
 ![Pokemon Page - Dark](https://i.hizliresim.com/6k1ikku.jpg)
-![Pokemon Page - Light](https://i.hizliresim.com/m767j1w.jpg)
 
 ![Pokedex By Type Page - Dark](https://i.hizliresim.com/1woy2sz.jpg)
-![Pokedex By Type Page - Light](https://i.hizliresim.com/t1pqm8j.jpg)
