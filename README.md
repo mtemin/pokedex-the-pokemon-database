@@ -1,7 +1,7 @@
 ## Features ( Özellikler ) : 
 - Light/Dark mode ( Karanlık/Aydınlık mod )
 - Pokedex page with infinite scrolling and graphQL queries ( Sonsuz kaydırma ve graphQL sorguları ile Pokemon Listesi sayfası )
-- Specific pokemon page ( Belirtilmiş pokemon sayfası)
+- Dynamic pokemon page ( Dinamik pokemon sayfası)
 - List pokemons by their type page ( Türlerine göre pokemon listeleme sayfası )
 - Go to specific pokemon with text or number entries ( Yazı veya numara girişiyle belirli pokemon sayfasına gitme )
 - Browser address bar support for any pokemon in database ( İstenen pokemona adres çubuğuna pokemon kimlik numarası veya isim girerek veritabanındaki herhangi bir pokemona gidebilme)
