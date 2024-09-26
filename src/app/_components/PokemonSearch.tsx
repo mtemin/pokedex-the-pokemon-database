@@ -9,7 +9,7 @@ function PokemonSearch() {
     let pokemonSearch = useAppSelector((state: any) => state.pokemonSearch.value);
 
     return (
-        <div className="flex justify-start items-center">
+        <div className="flex justify-start items-center max-sm:pt-10">
             <input onChange={(event) => dispatch(setPokemonSearch(event.target.value))} type="search"
                    placeholder="Search for a pokemon..."
                    value={pokemonSearch}

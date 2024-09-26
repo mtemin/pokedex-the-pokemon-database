@@ -14,7 +14,7 @@ function Pokemon({params}: { params: { id: number } }) {
             <div className="">
                 <Navbar/>
             </div>
-            <div className="w-auto flex flex-wrap justify-between mx-auto">
+            <div className="w-auto flex flex-wrap justify-between mx-auto max-sm:mt-10">
                 <PokemonDamageModifiers pokemonId={params.id}></PokemonDamageModifiers>
                 <PokemonShowcase pokemonId={params.id}></PokemonShowcase>
                 <PokemonStats pokemonId={params.id}></PokemonStats>

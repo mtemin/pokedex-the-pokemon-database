@@ -32,7 +32,7 @@ function Navbar() {
 
     return (
         <nav id="navbar"
-             className="rounded max-sm:rounded-none max-sm:border-b-2 max-sm:border-[var(--foreground-card)] flex justify-center mx-auto bg-[var(--background-card)] z-10 mt-3 w-full max-sm:mt-[0] max-sm:fixed max-sm:ml-[-1rem] transition-all duration-500 ">
+             className="rounded max-sm:rounded-none max-sm:border-b-2 max-sm:border-[var(--foreground-card)] max-sm:mb-4 flex justify-center mx-auto bg-[var(--background-card)] z-10 mt-3 w-full max-sm:mt-[0] max-sm:fixed max-sm:ml-[-1rem] transition-all duration-500 ">
             <ul className="flex justify-center items-center max-sm:flex-col w-full my-1">
                 <Link href="/"
                       className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Home</Link>
