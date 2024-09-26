@@ -57,7 +57,7 @@ function PokemonShowcase({pokemonId}: { pokemonId: number }) {
                         <div style={{animation: "none"}}
                              className="h-[192px] w-[192px] max-[1000px]:w-[128px] max-[1000px]:h-[128px] bg-rose-500 rounded"/>
                         {/*<button>*/}
-                        <p className="text-lg font-medium mt-6">No Pokemon found with this id or name :
+                        <p className="text-lg font-medium mt-6 font-ubuntu">No Pokemon found with this id or name :
                             <PathName isShort={true}/>
                         </p>
                     </div>
