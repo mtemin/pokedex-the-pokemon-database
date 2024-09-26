@@ -78,5 +78,5 @@ body {
         transparent,
         rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
     background-color: var(--background);
-    font-family: Ubuntu;
+    font-family: Pixelify, Ubuntu;
 }

@@ -1,6 +1,6 @@
 "use client"
 import type {Metadata} from 'next'
-import {Ubuntu} from 'next/font/google';
+import {Ubuntu, Pixelify_Sans} from 'next/font/google';
 import localFont from "next/font/local";
 import './globals.css'
 import {Provider as ReduxProvider} from 'react-redux'
@@ -14,14 +14,10 @@ const ubuntu = Ubuntu({
     variable: '--font-ubuntu'
 })
 
-const terminalGrotesque = localFont({
-    src: [
-        {
-            path: '../fonts/terminal-grotesque-webfont.ttf',
-            weight: '400'
-        }
-    ],
-    variable: '--font-terminal-grotesque'
+const pixelify = localFont({
+    // src: 'PixelifySans-VariableFont_wght.ttf',
+    src: '../fonts/PixelifySans-VariableFont_wght.ttf',
+    preload: true,
 })
 
 
@@ -32,12 +28,12 @@ const metadata: Metadata = {
 
 export default function RootLayout({children,}: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" className={pixelify.className}>
         <ReactQueryClient>
             <ReduxProvider store={store}>
                 {/* <body className={ubuntu.className}>{children}</body> */}
                 {/*<ErrorBoundary fallback={<Error/>}>*/}
-                <body className="font-terminal-grotesque">{children}</body>
+                <body className={pixelify.className}>{children}</body>
                 {/*</ErrorBoundary>*/}
             </ReduxProvider>
         </ReactQueryClient>
