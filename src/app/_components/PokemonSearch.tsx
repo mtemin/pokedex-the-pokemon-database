@@ -13,9 +13,8 @@ function PokemonSearch() {
             <input onChange={(event) => dispatch(setPokemonSearch(event.target.value))} type="search"
                    placeholder="Search for a pokemon..."
                    value={pokemonSearch}
-                   className="relative max-sm:w-full text-[var(--foreground)] mt-4 mr-[-2rem] bg-[var(--background)] border-0 border-b-2 border-[var(--foreground-card)]"/>
+                   className="relative max-sm:w-full  text-[var(--foreground)] mt-4 focus:ring-0 mr-[-2rem] bg-[var(--background)] border-0 border-b-2 border-[var(--foreground-card)]"/>
             <IconSearch className="w-8 h-8 absolute text-black bg-black z-[2]"/>
-            <p>{pokemonSearch}</p>
         </div>
     );
 }
