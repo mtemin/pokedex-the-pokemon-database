@@ -6,7 +6,7 @@ import Skeleton from "@/app/_components/Skeleton";
 import {useAppSelector, useAppDispatch} from '@/lib/hooks'
 import {useInView} from 'react-intersection-observer';
 import pokedexLimitSlice, {loadMore} from "@/lib/features/pokedexLimitSlice";
-import IconSpinner from "@/app/_components/Icon-Spinner";
+import IconSpinner from "@/app/_components/icon/Icon-Spinner";
 import PokemonCard from "@/app/_components/PokemonCard";
 
 function Pokedex() {

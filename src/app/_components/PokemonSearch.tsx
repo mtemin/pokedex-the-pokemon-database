@@ -1,5 +1,5 @@
 "use client"
-import IconSearch from "@/app/_components/Icon-Search";
+import IconSearch from "@/app/_components/icon/Icon-Search";
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
 import React from "react";
 import {setPokemonSearch} from "@/lib/features/pokemonSearchSlice";

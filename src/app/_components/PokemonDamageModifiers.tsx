@@ -6,10 +6,10 @@ import usePokedexByTypeQuery from "@/app/_hooks/usePokedexByTypeQuery";
 import usePokemonQuery from "@/app/_hooks/usePokemonQuery";
 import useTypeQuery from "@/app/_hooks/useTypeQuery";
 import DamageRelations from "@/app/_components/DamageRelations";
-import IconShield from "@/app/_components/Icon-Shield";
-import SwordIcon from "@/app/_components/Icon-Swords";
-import IconTick from "@/app/_components/Icon-Tick";
-import IconMinus from "@/app/_components/Icon-Minus";
+import IconShield from "@/app/_components/icon/Icon-Shield";
+import SwordIcon from "@/app/_components/icon/Icon-Swords";
+import IconTick from "@/app/_components/icon/Icon-Tick";
+import IconMinus from "@/app/_components/icon/Icon-Minus";
 
 export default function PokemonDamageModifiers({pokemonId}: { pokemonId: number }) {
     const {data: pokemonData, isLoading: isPokemonLoading, isError: isPokemonError} = usePokemonQuery(pokemonId);

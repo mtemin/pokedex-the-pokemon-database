@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useAppDispatch, useAppSelector} from "@/lib/hooks";
-import IconChevronUp from "@/app/_components/Icon-ChevronUp";
+import IconChevronUp from "@/app/_components/icon/Icon-ChevronUp";
 import Link from "next/link";
 import {setCurrentPokemon} from "@/lib/features/currentPokemonSlice";
 
