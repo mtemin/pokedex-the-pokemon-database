@@ -35,6 +35,7 @@ export default function PokemonDamageModifiers({pokemonId}: { pokemonId: number 
                 {/*/>*/}
             </div>
             <ul className="bg-[var(--background-card)] flex flex-col h-full w-full rounded py-4 px-2">
+                <p className="text-center font-bold text-lg mb-1">Type</p>
                 <div className="flex justify-center">
                     {typeData
                         ?
