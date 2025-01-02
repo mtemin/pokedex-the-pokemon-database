@@ -4,7 +4,7 @@
 - Dynamic pokemon page *( Dinamik pokemon sayfası)*
 - List pokemons by their type page *( Türlerine göre pokemon listeleme sayfası )*
 - Go to specific pokemon with text or number entries *( Yazı veya numara girişiyle belirli pokemon sayfasına gitme )*
-- Browser address bar support for any pokemon in database *( İstenen pokemona adres çubuğuna pokemon kimlik numarası veya isim girerek veritabanındaki herhangi bir pokemona gidebilme)*
+- Browser address bar support for any pokemon in database *( Adres çubuğuna pokemon kimlik numarası veya isim girerek veritabanındaki herhangi bir pokemona gidebilme)*
 
 ## Technologies (Kullanılan Teknolojiler ) : 
 - HTML, CSS, TailwindCSS, Flowbite
