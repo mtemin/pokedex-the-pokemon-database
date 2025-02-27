@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
 import GoToPokemon from "@/app/_components/GoToPokemon";
-import IconArrowUpDown from "@/app/_components/icon/Icon-Arrow-Up-Down";
-import {useAppDispatch, useAppSelector} from "@/lib/hooks";
+import {useAppDispatch} from "@/lib/hooks";
 import {setCurrentPokemon} from "@/lib/features/currentPokemonSlice";
 
 function Navbar() {
 
     const dispatch = useAppDispatch();
-    let currentPokemon = useAppSelector((state: any) => state.currentPokemon.value)
 
     const getRandomInt = (min: number, max: number) => {
         const minCeiled = Math.ceil(min);
@@ -21,6 +19,10 @@ function Navbar() {
         if (navbar) {
             navbar.classList.toggle('max-sm:mt-[-12rem]')
             navbar.classList.toggle('max-sm:mt-[0]')
+        }
+        const toggleNavbarIcon: Element | null = document.querySelector('#nav-toggle-icon');
+        if (toggleNavbarIcon) {
+            toggleNavbarIcon.classList.toggle("rotate-180")
         }
     }
 
@@ -35,19 +37,27 @@ function Navbar() {
              className="rounded max-sm:mt-[-12rem] max-sm:rounded-none max-sm:border-b-2 max-sm:border-[var(--foreground-card)] max-sm:mb-4 flex justify-center mx-auto bg-[var(--background-card)] z-10 mt-3 w-full max-sm:fixed max-sm:ml-[-1rem] transition-all duration-500 ">
             <ul className="flex justify-center items-center max-sm:flex-col w-full my-1 ">
                 <Link href="/"
-                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Home</Link>
+                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">
+                    Home
+                </Link>
                 <Link href="/pokedex/"
-                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Pokedex</Link>
+                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">
+                    Pokedex
+                </Link>
                 <Link href={`/pokemon/${randomPokemonId}`}
-                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Random
-                    Pokemon</Link>
+                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">
+                    Random Pokemon
+                </Link>
                 <Link href="/types"
-                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">Pokemons
-                    By Type</Link>
-                <GoToPokemon/>
+                      className="px-4 py-2 text-2xl  max-[760px]:text-lg max-[760px]:px-2 max-[760px]:py-1 text-center font-bold text-[var(--foreground-card)] hover:text-[var(--pokemon-fg)] cursor-pointer capitalize">
+                    Pokemons By Type
+                </Link>
+                <GoToPokemon />
                 <span onClick={toggleNavbar} className="hidden max-sm:block ml-auto my-1 mr-2">
-                    <IconArrowUpDown
-                        className="w-6 h-6 p-1 rounded-full border border-[var(--foreground-card)] text-[var(--foreground-card)] cursor-pointer"/>
+                    <img id="nav-toggle-icon"
+                         src="/pokemon-arrow.svg"
+                         className="w-6 h-6 p-1 rounded-full border border-[var(--foreground-card)] text-[var(--foreground-card)] cursor-pointer transition-all duration-500"
+                         alt="Navbar toggle icon" />
                 </span>
             </ul>
         </nav>
